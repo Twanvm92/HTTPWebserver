@@ -24,10 +24,7 @@ namespace HTTPWebserver
             String contentLength = "";
             String entityBody = "";
 
-	        for (int i = 0; i < 20; i++)
-	        {
-		        Console.WriteLine(i);
-	        }
+
             //Use a StreamReader and make sure it gets disposed properly.
             using (StreamReader sr = new StreamReader(stream))
             {
@@ -78,7 +75,6 @@ namespace HTTPWebserver
                             await sw.WriteLineAsync(contentLength);
                             await sw.WriteLineAsync("");
                             await sw.WriteLineAsync(entityBody);
-                            //					        Console.WriteLine(sr.ReadLine());
                             break;
                         }
 
@@ -87,12 +83,6 @@ namespace HTTPWebserver
 
             }
 
-            //Properly close the stream and client, and stop listening for 	connections.
-//            stream.Close();
-//            client.Close();
-
-            //            // try to accept a new pending request
-            //            TryConnect(client);
         }
 
 	    private int ToBytesInInt(String line)
